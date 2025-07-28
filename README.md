@@ -19,8 +19,8 @@ A full-stack web application built with **Django** and **HTML** to help students
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/study-abroad-assistant.git
-cd study-abroad-assistant
+git clone https://github.com/ai-art-dev99/customized-chatbot.git
+cd customized-chatbot
 ````
 
 ### 2. Set Up a Virtual Environment
@@ -62,9 +62,9 @@ Now visit `http://127.0.0.1:8000/` in your browser.
 ## 📁 Project Structure
 
 ```
-study-abroad-assistant/
+customized-chatbot/
 │
-├── assistant/           # Core Django app
+├── chatbot/           # Core Django app
 ├── templates/           # HTML templates
 ├── static/              # Static files (CSS, JS)
 ├── requirements.txt     # Python dependencies
