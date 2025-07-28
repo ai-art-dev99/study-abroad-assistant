@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with ChatGPT</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body style="background-color: gray;">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">John Smith</h5>
+                    <p class="text-muted mb-1">Full Stack Developer</p>
+                    <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init
+                            class="btn btn-primary">Follow</button>
+                        <a href="/account"><button type="button" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-outline-primary ms-1">Message</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        <div class="container mt-5 w-50">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="user_input" class="form-label">your prompt</label>
+                    <input type="text" class="form-control" id="user_input" name="user_input">
+                </div>
+                <button type="submit" class="btn btn-primary">see results</button>
+            </form>
+            <div class="form-floating mt-5">
+                <textarea class="form-control" id="chatgptresponse" style="height: 300px;">{{ response }}</textarea>
+                <label for="chatgptresponse">response</label>
+            </div>
+            <div class="form-floating mt-5">
+                <p class="ms-1">If you want seggestion about the programs click the button below</p>
+                <a href="/program-suggestion"><button type="button" data-mdb-button-init data-mdb-ripple-init
+                        class="btn btn-primary ms-1">Suggest Program</button></a>
+                <p class="ms-1">If you want seggestion about the jobs click the button below</p>
+                <a href="/job-suggestion"><button type="button" data-mdb-button-init data-mdb-ripple-init
+                        class="btn btn-primary ms-1">Suggest Job</button></a>
+            </div>
+        </div>
+        {% endblock content %}
+</body>
+
+</html>

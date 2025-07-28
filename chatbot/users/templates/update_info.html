@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update profile</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <div class="container mt-5 w-50 p-5">
+        <a href="../account">
+            <button type="button" class="btn btn-danger m-2">
+                Back
+            </button>
+        </a>
+        {% block content %}
+        <form class="form-with-validation" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary m-2">Submit</button>
+        </form>
+        {% endblock content %}
+    </div>
+</body>
+
+</html>

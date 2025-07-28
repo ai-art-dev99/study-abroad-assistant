@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with ChatGPT</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body style="background-color: gray;">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">John Smith</h5>
+                    <p class="text-muted mb-1">Full Stack Developer</p>
+                    <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init
+                            class="btn btn-primary">Follow</button>
+                        <a href="/account"><button type="button" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-outline-primary ms-1">Message</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        <div class="container mt-5 w-50">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Education</th>
+                        <th scope="col">Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ job.id }}</th>
+                        <td><a href="{{ job.joburl }}">{{ job.title }}</a></td>
+                        <td>{{ job.company }}</td>
+                        <td>{{ job.city }}</td>
+                        <td>{{ job.jobtype }}</td>
+                        <td>{{ job.education }}</td>
+                        <td>{{ job.salaryrange }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endblock content %}
+</body>
+
+</html>

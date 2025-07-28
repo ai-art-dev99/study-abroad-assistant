@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visa page</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'images/canada_bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}
+    <section class="" style="width: 70%;">
+        <div class="container py-5">
+
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Document Checklist</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <a class="btn" href="../display_pdf/{{ checklist }}" target="_blank">View
+                                        Document</a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Application Forms</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    {% for form in forms%}
+                                    <a class="btn" href="../display_pdf/{{ form }}" target="_blank"
+                                        style="text-transform: uppercase;">{{ form }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+                                <div class="card-body">
+                                    <p class="mb-3"><span class="text-primary font-italic me-1">PDF builder</span>
+                                    </p>
+                                    <p class="mb-1" style="font-size: 1rem;">Proof of means of financial support</p>
+                                    <p style="font-size: .8rem;">(1-2 first pages should be the personalized detailed
+                                        financial plan letter
+                                        including the financial resources and projected expenses, table of the content,
+                                        and all financial supporting documents in the next pages)</p>
+                                    <p class="mb-1" style="font-size: 1rem;">Client information</p>
+                                    <p style="font-size: .8rem;">(2-3 first pages should be the personalized study
+                                        plan, which explains the
+                                        academic and career goals, the reasons for choosing Canada, and the Program in
+                                        the Institution, and ties to home country, followed by the table of the content,
+                                        and all non-financial supporting documents in the next pages such as national ID
+                                        card, Birth certificate, English Language test, transcripts and so on.)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+                                <div class="card-body">
+                                    <p class="mb-4"><span class="text-primary font-italic me-1">Work</span>
+                                    </p>
+                                    <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                                    <div class="progress rounded" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 80%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                                    <div class="progress rounded" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 72%"
+                                            aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                                    <div class="progress rounded" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 89%"
+                                            aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                                    <div class="progress rounded" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 55%"
+                                            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                                    <div class="progress rounded mb-2" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 66%"
+                                            aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+</body>
+
+</html>

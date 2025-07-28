@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with ChatGPT</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body style="background-color: gray;">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">John Smith</h5>
+                    <p class="text-muted mb-1">Full Stack Developer</p>
+                    <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init
+                            class="btn btn-primary">Follow</button>
+                        <a href="/account"><button type="button" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-outline-primary ms-1">Message</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        <div class="container mt-5 w-50">
+            {% if pdfs.cv %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="filename" class="form-label">your cv file</label>
+                    <input type="text" class="form-control" id="filename" name="filename" value="{{ pdfs.cv }}">
+                </div>
+                <button type="submit" class="btn btn-primary">see results</button>
+            </form>
+            {% endif %}
+            {% if pdfs.sop %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="filename" class="form-label">your sop file</label>
+                    <input type="text" class="form-control" id="filename" name="filename">
+                </div>
+                <button type="submit" class="btn btn-primary">see results</button>
+            </form>
+            {% endif %}
+            {% if pdfs.jobcv %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="filename" class="form-label">your job cv file</label>
+                    <input type="text" class="form-control" id="filename" name="filename" value="{{ pdfs.jobcv }}">
+                </div>
+                <button type="submit" class="btn btn-primary">see results</button>
+            </form>
+            {% endif %}
+            <div class="form-floating mt-5">
+                <textarea class="form-control" id="chatgptresponse">{{ feedback }}</textarea>
+                <label for="chatgptresponse">feedback</label>
+            </div>
+        </div>
+        {% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+# Untracked directories
+database/
+venv/
+/chatbot/static/
+/chatbot/uploads/
+/chatbot/users/migrations/
+
+# Untracked files
+/chatbot/*.sqlite3
+/chatbot/*.env
+session_data_transfer.txt
+social_register.txt
+validate_pdf.txt
