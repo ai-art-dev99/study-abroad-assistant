@@ -108,5 +108,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 *Built with ❤️ to help students achieve their dreams of studying abroad.*
-
-```
